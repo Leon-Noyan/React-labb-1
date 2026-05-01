@@ -24,11 +24,15 @@ button:hover {
 }
 
 input {
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1.5px solid rgb(68, 64, 64);
     color: black;
     background-color: white;
     padding: 0.3rem;
+}
+
+.Search-box {
+  margin-top: 0.5rem;
 }
 
 .Todo-List ul {
@@ -76,6 +80,10 @@ input {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+}
+
+#task-counter {
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 700px) {

@@ -3,6 +3,7 @@ import './App.css'
 import type { Todo, NewTodo } from './type'
 import TodoInputs from './components/Inputs.component'
 import TodoList from './components/TodoList.component'
+import Search from './components/Search.component'
 
 function App() {
     const [todo, setTodo] = useState<Todo[]>([])
@@ -10,6 +11,8 @@ function App() {
 
     const [editId, setEditId] = useState<string | null>(null)
     const [editTitle, setEditTitle] = useState('')
+
+    const [search, setSearch] = useState('')
 
 
     const [error, setError] = useState<string | null>(null)
@@ -31,6 +34,8 @@ function App() {
         }
         fetchingTodos()
     }, [])
+
+    const filterTodos = todo.filter((t) =>  t.title.toLowerCase().includes(search.toLowerCase()))
 
     const handleAddTodo = async () => {
         if (!title) return
@@ -153,9 +158,10 @@ function App() {
                     handleAddTodo={handleAddTodo}
                 />
             )}
+            <Search search={search} setSearch={setSearch} />
 
             <TodoList
-                todo={todo}
+                todo={filterTodos}
                 handleToggles={handleToggles}
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
@@ -164,7 +170,7 @@ function App() {
                 setEditId={setEditId}
                 setEditTitle={setEditTitle}
             />
-            <p>{countCompletedTodos} of {totalTodosCount} tasks completed</p>
+            <p id='task-counter'>{countCompletedTodos} of {totalTodosCount} tasks completed</p>
         </div>
     )
 }
