@@ -1,0 +1,91 @@
+body {
+    background-color: rgb(188, 231, 232);
+    color: rgb(91, 84, 84);
+}
+
+h1 {
+    color: rgb(68, 64, 64);
+}
+
+button {
+    border-radius: 12px;
+    border: 1.5px solid rgb(68, 64, 64);
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 0.2rem;
+    margin-left: 0.1rem;
+    padding: 0.3rem;
+}
+
+button:hover {
+    background-color: rgb(68, 64, 64);
+    color: white;
+}
+
+input {
+    border-radius: 12px;
+    border: 1.5px solid rgb(68, 64, 64);
+    color: black;
+    background-color: white;
+    padding: 0.3rem;
+}
+
+.Todo-List ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.Todo-List li {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1.5px solid rgb(68, 64, 64);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 4px 5px 3px 1px rgba(0, 0, 0, 0.52);
+    min-height: 100px;
+}
+
+.View {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    justify-content: space-between;
+    flex: 1;
+    margin-bottom: 0.5rem;
+}
+
+.View span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(68, 64, 64);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+@media (max-width: 700px) {
+    .Todo-List ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .Todo-List ul {
+        grid-template-columns: repeat 1fr;
+    }
+}
