@@ -6,6 +6,7 @@ import TodoList from './components/TodoList.component'
 import Search from './components/Search.component'
 
 function App() {
+    // States
     const [todo, setTodo] = useState<Todo[]>([])
     const [title, setTitle] = useState('')
 
@@ -14,9 +15,9 @@ function App() {
 
     const [search, setSearch] = useState('')
 
-
     const [error, setError] = useState<string | null>(null)
 
+    // Fetches todos from API
     useEffect(() => {
         const fetchingTodos = async () => {
             try {
@@ -35,8 +36,10 @@ function App() {
         fetchingTodos()
     }, [])
 
-    const filterTodos = todo.filter((t) =>  t.title.toLowerCase().includes(search.toLowerCase()))
+    // We use this to filter todos based on search
+    const filterTodos = todo.filter((t) => t.title.toLowerCase().includes(search.toLowerCase()))
 
+    // Adds new todo/ task with POST and updates local state
     const handleAddTodo = async () => {
         if (!title) return
 
@@ -63,7 +66,7 @@ function App() {
             setError('Something went wrong, could not create todo!')
         }
     }
-
+    // Lets user toggle between complete and uncomplete
     const handleToggles = async (id: string) => {
         const todoTask = todo.find((t) => t.id === id)
         if (!todoTask) return
@@ -89,7 +92,9 @@ function App() {
         }
     }
 
+    // Deletes todo/ task with DELETE
     const handleDelete = async (id: string) => {
+      // this gives the user a confirmation window before delete is executed
       const confirmDeletion = confirm('Are you sure you want to delete this task?')
       if (!confirmDeletion) return
         try {
@@ -99,7 +104,7 @@ function App() {
                     method: 'DELETE'
                 }
             )
-
+            // if id does not match, the todo is kept else not included in new state
             setTodo(todo.filter((todo) => todo.id !== id))
             setError(null)
         } catch (error) {
@@ -108,6 +113,7 @@ function App() {
         }
     }
 
+    // Updates todo title via PUT
     const handleEdit = async (id: string) => {
         if (!editTitle) return
         const todoTask = todo.find((todo) => todo.id === id)
@@ -134,7 +140,7 @@ function App() {
                     return todo
                 })
             )
-
+            // Resets state
             setEditId(null)
             setEditTitle('')
             setError(null)
@@ -144,6 +150,7 @@ function App() {
         }
     }
 
+    // Used to count completed todos/ tasks
     const countCompletedTodos = todo.filter((todo) => todo.completed).length
     const totalTodosCount = todo.length
 
@@ -170,6 +177,7 @@ function App() {
                 setEditId={setEditId}
                 setEditTitle={setEditTitle}
             />
+            {/* Displays the number of completed tasks/ todos */}
             <p id='task-counter'>{countCompletedTodos} of {totalTodosCount} tasks completed</p>
         </div>
     )

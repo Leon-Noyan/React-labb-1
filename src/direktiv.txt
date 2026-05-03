@@ -1,0 +1,12 @@
+Tillgänglighetsdirektiv
+
+1. Vad innebär det att en webbplats är tillgänglig?
+En webbplats klassas som tillgänglig om den är användbar för alla dess användare. Sidan ska fungera oavsett funktionsförmåga som exempelvis nedsatt syn, hörsel och kognitiv förmåga. Vi kan uppnå detta genom att följa WCAG standarder (synlig, användbar, förståelig, fungerar överallt/ robust).
+
+2. Varför är tillgänglighet viktig vid utveckling av webbapplikationer?
+
+Det är viktigt att webbapplikationer fungerar bra för alla användare, oavsett deras funktionsnedsättning. Vi vill kunna ge alla möjligheten att ta del av information och tjänster på webben. Det finns även lagkrav enligt EU:s Tillgänglighetsdirektiv som gäller främst för offentliga verksamheter och vissa digitala tjänster där man måste följa tillgänglighetsstandarder. En webbplats som är tillgänglig för personer med funktionsnedsättningar säkerställer även en mer användarvänlig upplevelse för alla medlemmar oavsett deras funktionsförmåga.
+
+3. Ge tre konkreta exempel på hur ni kan göra en React-applikation mer tillgänglig.
+
+Vi kan använda alt-texter på bilder så att skärmläsaren kan förklara för personen vad som finns i bilden. Vidare kan vi använda semantisk HTML för att förbättra sidans struktur. Vi kan även lägga till labels vid inputs, detta gör det tydligare för användaren vad inputen vad används till.
