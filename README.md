@@ -1,4 +1,4 @@
-# Todo App with React and TypeScript
+# Todo App med React och TypeScript
 
 Applikationen låter användaren skapa, redigera och ta bort egna todo tasks. Användaren kan även söka genom sina tasks för att navigera bland sina dagliga uppgifter.
 
