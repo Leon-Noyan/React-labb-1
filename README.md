@@ -1,73 +1,27 @@
-# React + TypeScript + Vite
+# Todo App with React and TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Applikationen låter användaren skapa, redigera och ta bort egna todo tasks. Användaren kan även söka genom sina tasks för att navigera bland sina dagliga uppgifter.
 
-Currently, two official plugins are available:
+## Funktioner
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Visa todo lista:** Hämtar alla tasks och listar dem från ett Api.
+**Skapa ny task:** Låter användaren skapa en ny task.
+**Redigera:** Ändra texten för en task samt markera den som slutförd och ej slutförd.
+**Radera:** Ta bort en task.
+**Sök:** Sök och filtrera bland todos/ tasks.
+**Responsivitet:** Anpassad för desktop och mobil.
 
-## React Compiler
+## Teknisk stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frameworks:** React
+**Språk:** TypeScript
+**Styling:** CSS
+**API:** Mock API: https://mockapi.io/
 
-## Expanding the ESLint configuration
+## API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Applikationen använder en API för att göra följande:
+**GET:** Hämtar alla tasks från REST-API
+**POST:** Används för att skapa en ny task
+**PUT:** Används för att redigera en todo samt uppdatera dens status (slutförd/ej slutförd).
+**DELETE:** Används för att ta bort en task via ID.
